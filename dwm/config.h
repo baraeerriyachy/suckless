@@ -102,8 +102,8 @@ static Key keys[] = {
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
         { 0, XK_F9, spawn, {.v = mutecmd } },
-        { 0, XK_F11, spawn, {.v = voldowncmd } },
-        { 0, XK_F12, spawn, {.v = volupcmd } },
+        { 0, XK_F10, spawn, {.v = voldowncmd } },
+        { 0, XK_F11, spawn, {.v = volupcmd } },
 
 };
 

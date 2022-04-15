@@ -5,7 +5,7 @@ My personnal suckless dwm configuration
 
 # Required packages
 ```
-dwm st dmenu feh xcompmgr xorg xorg-server xorg-xsetroot xorg-xinitrc
+dwm st dmenu feh xcompmgr xorg xorg-server xorg-xsetroot xorg-xinitrc pulseaudio alsa-utils
 ```
 # Installation
 ```

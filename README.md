@@ -12,7 +12,7 @@ dwm st dmenu feh xcompmgr xorg-server xorg-xsetroot xorg-xinitrc pulseaudio puls
 git clone https://github.com/baraeerriyachy/suckless.git
 cd suckless
 cd dotfiles
-mv .bash_profile .xinitrc .xsetroot.sh ~/
+mv .bash_profile .xinitrc ~/
 cd ..
 cd dwm
 make && sudo make install

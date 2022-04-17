@@ -12,6 +12,8 @@ done &
 #For activate audio
 start-pulseaudio-x11 
 
+#Set transparency
+xcompmgr -n &
+
 #Start dwm
 exec dwm
-

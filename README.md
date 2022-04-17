@@ -12,7 +12,8 @@ dwm st dmenu feh xcompmgr xorg-server xorg-xsetroot xorg-xinitrc pulseaudio puls
 git clone https://github.com/baraeerriyachy/suckless.git
 cd suckless
 cd dotfiles
-mv .bash_profile .xinitrc ~/
+cp .bash_profile ~/     (or .zprofile if you are using zsh)
+cp .xinitrc ~/
 cd ..
 cd dwm
 make && sudo make install
@@ -20,7 +21,7 @@ cd ..
 cd st
 make && sudo make install
 sudo reboot
-feh --bg-scale ~/suckless/wallpaper.jpg
+feh --bg-scale [Your wallpaper PATH]
 ```
 # Configuring Gtk File Chooser
 ```

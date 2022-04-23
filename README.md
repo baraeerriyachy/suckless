@@ -2,10 +2,8 @@
 ```
 My personnal suckless dwm configuration
 ```
-
 # Required packages
-```
-- [dwm] 
+- [dwm]
 - [st] 
 - [dmenu] 
 - [feh] 
@@ -16,7 +14,6 @@ My personnal suckless dwm configuration
 - [pulseaudio] 
 - [pulseaudio-alsa] 
 - [alsa-utils]
-```
 # Installation
 ```
 git clone https://github.com/baraeerriyachy/suckless.git

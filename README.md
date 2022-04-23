@@ -14,6 +14,7 @@ My personnal suckless dwm configuration
 - pulseaudio
 - pulseaudio-alsa 
 - alsa-utils
+- ttf-font-awesome 
 # Installation
 ```
 git clone https://github.com/baraeerriyachy/suckless.git

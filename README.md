@@ -5,7 +5,7 @@ My personnal suckless dwm configuration
 # Required packages
 - dwm
 - st 
-- dmenu 
+- rofi 
 - feh
 - xcompmgr
 - xorg-server

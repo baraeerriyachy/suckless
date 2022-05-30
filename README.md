@@ -3,14 +3,13 @@
 My personnal suckless dwm configuration
 ```
 # Required packages
-- dwm
-- st 
 - rofi 
 - feh
 - xcompmgr
 - xorg-server
 - xorg-xsetroot 
-- xorg-xinitrc 
+- xorg-xinitrc
+- xf86-video-intel 
 - pulseaudio
 - pulseaudio-alsa 
 - alsa-utils

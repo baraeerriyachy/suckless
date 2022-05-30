@@ -36,3 +36,12 @@ feh --bg-scale [Your wallpaper PATH]
 gsettings set org.gtk.Settings.FileChooser window-size '(800, 600)'
 gsettings set org.gtk.Settings.FileChooser window-position '(800, 600)'
 ```
+# Fixing screen tearing
+/etc/X11/xorg.conf.d/20-intel.conf
+```
+Section "Device"
+  Identifier "Intel Graphics"
+  Driver "intel"
+  Option "TearFree" "true"
+EndSection
+```

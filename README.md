@@ -44,3 +44,8 @@ Section "Device"
   Option "TearFree" "true"
 EndSection
 ```
+# Removing window close/minimize/maximaze buttons
+~/.config/gtk-3.0/settings.ini
+```
+gtk-decoration-layout=
+```

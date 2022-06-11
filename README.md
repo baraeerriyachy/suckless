@@ -13,7 +13,8 @@ My personnal suckless dwm configuration
 - pulseaudio
 - pulseaudio-alsa 
 - alsa-utils
-- ttf-font-awesome 
+- ttf-font-awesome
+- xkb-switch 
 # Installation
 ```
 git clone https://github.com/baraeerriyachy/suckless.git

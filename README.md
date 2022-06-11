@@ -49,3 +49,10 @@ EndSection
 ```
 gtk-decoration-layout=
 ```
+# Switching between 2 keyboard layout
+```
+git clone https://github.com/baraeerriyachy/switch-layout.git
+cd switch-layout
+chmod +x switch-layout
+sudo mv switch-layout /usr/bin
+```

@@ -31,11 +31,6 @@ make && sudo make install
 sudo reboot
 feh --bg-scale [Your wallpaper PATH]
 ```
-# Configuring Gtk File Chooser
-```
-gsettings set org.gtk.Settings.FileChooser window-size '(800, 600)'
-gsettings set org.gtk.Settings.FileChooser window-position '(800, 600)'
-```
 # Fixing screen tearing
 /etc/X11/xorg.conf.d/20-intel.conf
 ```
@@ -44,6 +39,11 @@ Section "Device"
   Driver "intel"
   Option "TearFree" "true"
 EndSection
+```
+# Configuring Gtk File Chooser
+```
+gsettings set org.gtk.Settings.FileChooser window-size '(800, 600)'
+gsettings set org.gtk.Settings.FileChooser window-position '(800, 600)'
 ```
 # Removing window close/minimize/maximaze buttons
 ~/.config/gtk-3.0/settings.ini

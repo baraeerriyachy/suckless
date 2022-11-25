@@ -33,7 +33,7 @@ feh --bg-scale [Your wallpaper PATH]
 ```
 # Used patches
 - dwm-fullgaps-toggle
-- dwm-notitle-20210715
+- dwm-notitle
 - st-alpha
 
 # Fixing screen tearing

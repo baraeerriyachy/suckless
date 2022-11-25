@@ -35,6 +35,8 @@ feh --bg-scale [Your wallpaper PATH]
 - dwm-fullgaps-toggle
 - dwm-notitle
 - st-alpha
+- st-scrollback
+- st-scrollback-mouse
 
 # Fixing screen tearing
 /etc/X11/xorg.conf.d/20-intel.conf

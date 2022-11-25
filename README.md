@@ -31,6 +31,11 @@ make && sudo make install
 sudo reboot
 feh --bg-scale [Your wallpaper PATH]
 ```
+# Used patches
+- dwm-fullgaps-toggle
+- dwm-notitle-20210715
+- st-alpha
+
 # Fixing screen tearing
 /etc/X11/xorg.conf.d/20-intel.conf
 ```

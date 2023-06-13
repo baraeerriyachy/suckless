@@ -34,7 +34,6 @@ typedef struct {
 	void (*func)(const Arg *);
 	const Arg arg;
 	uint  release;
-	int  altscrn;  /* 0: don't care, -1: not alt screen, 1: alt screen */
 } MouseShortcut;
 
 typedef struct {
@@ -254,6 +253,7 @@ static char *opt_io    = NULL;
 static char *opt_line  = NULL;
 static char *opt_name  = NULL;
 static char *opt_title = NULL;
+static char *opt_dir   = NULL;
 
 static uint buttons; /* bit field of pressed buttons */
 
@@ -458,7 +458,6 @@ mouseaction(XEvent *e, uint release)
 	for (ms = mshortcuts; ms < mshortcuts + LEN(mshortcuts); ms++) {
 		if (ms->release == release &&
 		    ms->button == e->xbutton.button &&
-		    (!ms->altscrn || (ms->altscrn == (tisaltscr() ? 1 : -1))) &&
 		    (match(ms->mod, state) ||  /* exact or forced */
 		     match(ms->mod, state & ~forcemousemod))) {
 			ms->func(&(ms->arg));
@@ -1852,7 +1851,7 @@ void
 kpress(XEvent *ev)
 {
 	XKeyEvent *e = &ev->xkey;
-	KeySym ksym;
+	KeySym ksym = NoSymbol;
 	char buf[64], *customkey;
 	int len;
 	Rune c;
@@ -1862,10 +1861,13 @@ kpress(XEvent *ev)
 	if (IS_SET(MODE_KBDLOCK))
 		return;
 
-	if (xw.ime.xic)
+	if (xw.ime.xic) {
 		len = XmbLookupString(xw.ime.xic, e, buf, sizeof buf, &ksym, &status);
-	else
+		if (status == XBufferOverflow)
+			return;
+	} else {
 		len = XLookupString(e, buf, sizeof buf, &ksym, NULL);
+	}
 	/* 1. shortcuts */
 	for (bp = shortcuts; bp < shortcuts + LEN(shortcuts); bp++) {
 		if (ksym == bp->keysym && match(bp->mod, e->state)) {
@@ -2033,12 +2035,12 @@ run(void)
 void
 usage(void)
 {
-	die("usage: %s [-aiv] [-c class] [-f font] [-g geometry]"
-	    " [-n name] [-o file]\n"
+	die("usage: %s [-aiv] [-c class] [-d path] [-f font]"
+	    " [-g geometry] [-n name] [-o file]\n"
 	    "          [-T title] [-t title] [-w windowid]"
 	    " [[-e] command [args ...]]\n"
-	    "       %s [-aiv] [-c class] [-f font] [-g geometry]"
-	    " [-n name] [-o file]\n"
+	    "       %s [-aiv] [-c class] [-d path] [-f font]"
+	    " [-g geometry] [-n name] [-o file]\n"
 	    "          [-T title] [-t title] [-w windowid] -l line"
 	    " [stty_args ...]\n", argv0, argv0);
 }
@@ -2093,6 +2095,9 @@ main(int argc, char *argv[])
 	case 'v':
 		die("%s " VERSION "\n", argv0);
 		break;
+	case 'd':
+		opt_dir = EARGF(usage());
+		break;
 	default:
 		usage();
 	} ARGEND;
@@ -2112,6 +2117,7 @@ run:
 	xinit(cols, rows);
 	xsetenv();
 	selinit();
+	chdir(opt_dir);
 	run();
 
 	return 0;
